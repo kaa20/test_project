@@ -17,5 +17,10 @@ pipeline {
                 sh 'whoami'
             }
         }
+        stage("Second step") {
+            steps {
+                sh 'ssh ubuntu@18.132.189.220 \'hostname -A\''
+            }
+        }
     }
 }
