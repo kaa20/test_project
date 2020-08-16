@@ -14,8 +14,8 @@ pipeline {
         stage("create docker image") {
             steps {
                 echo " ============== start building image =================="
-                dir ('spring-boot-docker') {
-                	sh 'docker build -t spring-hello . '
+                dir ('.') {
+                	sh 'docker build -t hello-docker . '
                 }
             }
         }

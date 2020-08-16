@@ -1,3 +1,9 @@
-# Default ignored files
-\.idea/
-\spring-boot-docker/target/
+HELP.md
+target/
+out/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### IntelliJ IDEA ###
+.idea
