@@ -1,5 +1,5 @@
 #!groovy
-// Check properties
+// Run docker build
 properties([disableConcurrentBuilds()])
 
 pipeline {
@@ -11,15 +11,12 @@ pipeline {
         timestamps()
     }
     stages {
-        stage("First step") {
+        stage("create docker image") {
             steps {
-                sh 'hostname'
-                sh 'whoami'
-            }
-        }
-        stage("Second step") {
-            steps {
-                sh 'hostname -A'
+                echo " ============== start building image =================="
+                dir ('spring-boot-docker') {
+                	sh 'docker build -t spring-hello . '
+                }
             }
         }
     }
