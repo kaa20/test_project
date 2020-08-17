@@ -11,7 +11,7 @@ public class Application {
 
 	@RequestMapping("/")
 	public String home() {
-		return "Hello from Docker!";
+		return "Hello from Docker! \n Message was sending by jenkins.";
 	}
 
 	public static void main(String[] args) {
