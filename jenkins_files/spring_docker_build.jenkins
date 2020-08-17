@@ -13,22 +13,10 @@ pipeline {
     stages {
         stage("create docker image") {
             steps {
-                echo " ============== start building image =================="
+                echo " ============== start building docker =================="
                 dir ('.') {
                     sh 'docker build -t hello-docker . '
-                }
-            }
-        }
-        stage("run docker container") {
-            steps {
-                echo " ============== stop old container =================="
-                dir ('.') {
                     sh 'docker container stop hello'
-                }
-            }
-            steps {
-                echo " ============== build and run container =================="
-                dir ('.') {
                     sh 'docker container run --name hello -d -p 8082:8082 --rm hello-docker'
                 }
             }
