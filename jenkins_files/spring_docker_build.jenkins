@@ -14,17 +14,23 @@ pipeline {
         stage("create docker image") {
             steps {
                 echo " ============== start building image =================="
-                sh 'docker build -t hello-docker . '
+                dir ('.') {
+                    sh 'docker build -t hello-docker . '
+                }
             }
         }
         stage("run docker container") {
             steps {
                 echo " ============== stop old container =================="
-                sh 'docker container stop hello'
+                dir ('.') {
+                    sh 'docker container stop hello'
+                }
             }
             steps {
                 echo " ============== build and run container =================="
-                sh 'docker container run --name hello -d -p 8082:8082 --rm hello-docker'
+                dir ('.') {
+                    sh 'docker container run --name hello -d -p 8082:8082 --rm hello-docker'
+                }
             }
         }
     }
