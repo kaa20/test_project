@@ -1,3 +1,3 @@
 .idea
 target/
-!target/test_project-*.jar
+!target/test_project-0.2.0-SNAPSHOT.jar
